@@ -1,0 +1,103 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+
+{% block extend_nav %}
+
+<ul class="sidenav">
+  <li><a class="active" href="{% url 'users:account' %}">Demo User Account</a></li>
+  <li><a href="{% url 'api:cart' %}">Demo Cart</a></li>
+  <li><a href="{% url 'users:sign-out' %}">Sign out</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Django Braintree API Demo - User Account</h3>
+
+<div class="container">
+
+  <h4>User account details</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Username</td>
+        <td>{{request.user.username}}</td>      
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>{{request.user.first_name}} {{request.user.last_name}}</td>      
+      </tr>
+      <tr>
+        <td>Telephone</td>
+        <td>{{request.user.userprofile.telephone}}</td>      
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>
+          <address>
+            {{request.user.userprofile.address}}<br>
+            {{request.user.userprofile.town}}<br>
+            {{request.user.userprofile.county}}<br>
+            {{request.user.userprofile.post_code}}<br>
+          </address>
+        </td>      
+      </tr>
+
+    </tbody>
+  </table>
+
+  {% if invoices %}
+  <h4>Invoices</h4>
+  <table>
+    <thead>
+      <tr>
+          <th hidden>ID</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+      </tr>
+      
+    </thead>
+    <tbody>
+      {% for inv in invoices %}
+      <tr>
+        <td hidden>{{inv.0}}</td>
+        <td>{{inv.1}}</td>
+        <td>{{inv.2}}</td>
+        <td>£{{inv.3}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+</div>
+
+<!-- This handels the verified url param & displays a success alert-->
+<script type="text/javascript">
+  var ver = "{{verified|safe}}"
+  if (ver == "true"){
+    alert("Thank you, your email has been verified")
+  }
+</script>
+
+{% endblock %}
+
+
+{% block extend_footer %}
+
+{% endblock %}

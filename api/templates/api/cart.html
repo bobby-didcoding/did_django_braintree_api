@@ -1,0 +1,53 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block extend_head %}
+
+{% endblock %}
+
+
+{% block extend_nav %}
+
+<ul class="sidenav">
+  <li><a class="active" href="{% url 'users:account' %}">Demo User Account</a></li>
+  <li><a href="{% url 'api:cart' %}">Demo Cart</a></li>
+  <li><a href="{% url 'users:sign-out' %}">Sign out</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Django Braintree API Demo - Cart</h3>
+
+<div class="container">
+
+  <form action="." method="POST" id="payment-form" enctype="multipart/form-data">
+      {% csrf_token %}
+    <section>
+      <div class="bt-drop-in-wrapper">
+        <div id="bt-dropin"></div>
+      </div>
+    </section>
+
+    <input type="hidden" id="nonce" name="payment_method_nonce" />
+    <button class="btn-style-1" id="btBtnbutton"><span>Pay £16.52</span></button>
+  </form>
+  
+</div>
+
+<script type="text/javascript">
+  var stripe_key = '{{stripe_key|safe}}'
+</script>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+<script type="text/javascript">
+  var braintree_client_token = "{{braintree_client_token|safe}}"
+</script>
+<script src="{% static 'braintree.js' %}"></script>
+
+{% endblock extend_footer %}
