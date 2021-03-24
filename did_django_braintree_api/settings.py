@@ -137,7 +137,7 @@ EMAIL_HOST = 'XXX'
 EMAIL_PORT = 'XXX'
 EMAIL_USE_TLS = 'XXX'
 EMAIL_HOST_USER = 'XXX'
-DISPLAY_NAME = "User App demo email"
+DISPLAY_NAME = "Braintree API demo email"
 DONOT_REPLY_EMAIL_PASSWORD = 'XXX'
 CURRENT_SITE = "http://localhost:8000"
 

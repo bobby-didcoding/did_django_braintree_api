@@ -97,5 +97,6 @@ def payment(request):
 		return HttpResponse(
 			json.dumps({"result": "error"}),
 			content_type="application/json"
+			#78325
 			)
 
