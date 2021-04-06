@@ -133,20 +133,20 @@ LOGIN_REDIRECT_URL = "users:account"
 LOGOUT_REDIRECT_URL = "users:sign-in"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bobby@didcoding.com'
+EMAIL_HOST = 'XXX'
+EMAIL_PORT = 'XXX'
+EMAIL_USE_TLS = 'XXX'
+EMAIL_HOST_USER = 'XXX'
 DISPLAY_NAME = "Braintree API demo email"
-DONOT_REPLY_EMAIL_PASSWORD = 'ufflmdgkcdcwrgyt'
+DONOT_REPLY_EMAIL_PASSWORD = 'XXX'
 CURRENT_SITE = "http://localhost:8000"
 
 if DEBUG:
 
     BT_ENVIRONMENT = 'sandbox'
-    BT_MERCHANT_ID = 'fgtwgxknt4k2wwwd'
-    BT_PUBLIC_KEY = 'g6qjy9tvbvvdqjbq'
-    BT_PRIVATE_KEY = '8743c0a18335f6e8896cbe408c57642a'
+    BT_MERCHANT_ID = 'XXX'
+    BT_PUBLIC_KEY = 'XXX'
+    BT_PRIVATE_KEY = 'XXX'
 else:
 
     BT_ENVIRONMENT = 'production'
